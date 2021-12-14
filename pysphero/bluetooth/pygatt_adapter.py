@@ -37,7 +37,8 @@ class PygattAdapter(AbstractBleAdapter):
         logger.debug("Init pygatt Adapter")
         super().__init__(mac_address)
 
-        self.adapter = pygatt.BGAPIBackend()
+        self.adapter = pygatt.GATTToolBackend()
+        #self.adapter = pygatt.BGAPIBackend()
         self.adapter.start()
         self.delegate = PygattDelegate(self.packet_collector)
 
